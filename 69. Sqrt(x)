@@ -1,0 +1,71 @@
+69. Sqrt(x)
+
+
+https://leetcode.com/problems/sqrtx/
+
+
+
+
+A1: INBUILT FUNCTION
+
+use sqrt, floor function or use pow(x,0.5) or x**0.5
+Time : O(1)
+Space : O(1)
+
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        return floor(sqrt(x))
+        
+        
+A2: Using linear search
+
+iterate for i=1 to x/i as x<=i*i if x=i*i return i else return i-1(needed to return smallest nearest integer)
+# to avoid integer overflow check for x/i==i
+
+T: O(sqrt(n))
+S: O(1)
+
+
+
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        i=1
+        while(i<=x//i):
+            if(x==i*i):
+                return i
+            i=i+1
+        else:
+            return i-1
+            
+            
+
+A3: Using binary search
+
+change mid condition to x=mid*mid
+less: same
+high: put ans=mid
+
+T:O(log n)
+S:O(1)
+
+
+
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        low=1
+        high=x
+        ans = 0
+        while(low<=high):
+            mid=(low+high)//2
+            if(mid*mid==x):
+                return mid
+            elif(x<mid*mid):
+                high=mid-1
+            else:
+                low=mid+1
+                ans = mid
+        return ans 
+
+
+
+
