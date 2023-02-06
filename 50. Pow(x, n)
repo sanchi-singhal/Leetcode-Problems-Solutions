@@ -1,0 +1,35 @@
+50. Pow(x, n)
+
+
+https://leetcode.com/problems/powx-n/
+
+
+A1 USING BUILTIN FUNCTION
+
+T:O(1)
+S:O(1)
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        return pow(x,n)
+
+A2 Using loop(TLE)
+
+T:O(n)
+S:O(1)
+
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        z=1
+        if(n>0):
+            for i in range(1,n+1):
+                z=z*x
+        elif(n<0):
+            for i in range(1,-n+1):
+                # print(x)
+                z=z*(1/x)
+                # print(z)
+        return z
+        
+A3 
+
